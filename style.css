@@ -1,0 +1,155 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.centered {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+}
+
+#content.blur-effect, .square {
+    transition: filter 0.5s ease, opacity 0.5s ease, background-color 0.5s ease; /* Add background-color transition */
+}
+
+#content.blur-effect {
+    filter: blur(5px);
+}
+
+#white-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    transition: display 0s 0.5s, opacity 0.5s ease;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: transparent; /* Normal red background for square */
+    margin-bottom: 30px;
+    animation: bobbing 3s infinite ease-in-out;
+    transition: background-color 0.5s ease; /* Add background-color transition */
+}
+
+@keyframes bobbing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.enter-button {
+    border: 2px solid red;
+    background-color: transparent;
+    color: red;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+.enter-button:hover {
+    background-color: red; /* Fill with normal red on hover for unchecked buttons */
+    color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.enter-button.clicked {
+    background-color: #7b0000; /* Dimmed red when clicked */
+    border-color: #7b0000; /* Ensure border also matches the clicked color */
+    color: #ddd; /* Dimmed text to match background dimming */
+}
+
+/* Add transition for unchecked button elements when clicked */
+.enter-button:not(.clicked) {
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+/* Adjust the square appearance when a button is clicked */
+.enter-button.clicked + .square {
+    background-color: #7b0000; /* Dimmed red for the square when a button is clicked */
+    transition: background-color 0.5s ease; /* Add background-color transition */
+}
+
+/* Adjust the unchecked button's background when a button is clicked */
+.enter-button.clicked ~ .enter-button {
+    background-color: transparent; /* Transparent background for unchecked buttons when a button is clicked */
+    border-color: #7b0000; /* Ensure border also matches the clicked color */
+    color: #7b0000; /* Dimmed text to match background dimming */
+}
+
+/* Add a new CSS class for the dimming effect */
+.dim-effect {
+    filter: blur(5px); /* Add a blur effect to the image */
+    opacity: 1.0; /* Adjust the opacity to your preference */
+    filter: brightness(0.6)
+}
+
+/* Ensure that existing CSS styles are retained */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Add more CSS styles as needed for other elements */

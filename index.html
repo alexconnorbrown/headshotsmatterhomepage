@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="overlay"></div> <!-- Used for dimming -->
+    <div class="centered" id="content">
+        <img src="headshotsMatter_favicon-3.png" alt="Flavicon" class="square" id="imageToDim">
+        <div class="button-container">
+            <button class="enter-button" onclick="dimImage()">Associate Members</button>
+            <button class="enter-button" onclick="dimImage()">Creative Members</button>
+        </div>
+    </div>
+    <!-- White box that appears in the center -->
+    <div id="white-box" class="hidden">
+        <p>Content goes here...</p>
+        <button onclick="hideWhiteBox()">Close</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
